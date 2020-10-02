@@ -30,6 +30,12 @@ namespace EFPractice
                 {
                     logger.Info($"Employee in IT Depratment : {emp.Name}, {emp.Salary}");
                 }
+
+                dbContext.Departments.Add(new Department()
+                {
+                    Name = "Transport",
+                    Location = "Delhi"
+                });
             }
         }
     }

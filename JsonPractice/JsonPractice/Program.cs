@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Newtonsoft.Json;
 namespace JsonPractice
 {
@@ -25,8 +26,30 @@ namespace JsonPractice
     }
     public class Employee
     {
+        private string _employeeName;
+        private int _age;
         public int EmployeeId { get; set; }
-        public string EmployeeName { get; set; }
-        public int Age { get; set; }
+
+        public string EmployeeName
+        {
+            get => _employeeName;
+            set
+            {
+                if(string.IsNullOrWhiteSpace(value))
+                    throw new Exception("Name cannot be empty");
+                _employeeName = value;
+            }
+        }
+
+        public int Age
+        {
+            get => _age;
+            set
+            {
+                if(value < 0)
+                    throw  new  Exception("Age cannot be empty");
+                _age = value;
+            }
+        }
     }
 }
